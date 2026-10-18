@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mistério na Mansão</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- MENU -->
+<section id="menu" class="screen active">
+  <div class="menu-bg"></div>
+  <div class="menu-box">
+    <p class="kicker">Um jogo de investigação criminal</p>
+    <h1>Mistério<br><span>na Mansão</span></h1>
+    <img class="banner" src="assets/banner.jpg" alt="Suspeitos da mansão">
+    <p class="lead">Um crime foi cometido. Descubra o assassino, o local e a arma antes que o seu rival o faça.</p>
+    <div class="menu-btns">
+      <button class="btn big" data-mode="cpu">Jogar contra a Máquina</button>
+      <button class="btn big alt" data-mode="duo">Dois Jogadores</button>
+      <button class="btn ghost" id="btn-regras">Como jogar</button>
+      <button class="btn ghost" id="btn-full-menu">Tela cheia</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIG NOMES -->
+<section id="setup" class="screen">
+  <div class="menu-bg"></div>
+  <div class="menu-box small">
+    <h2>Escolha os investigadores</h2>
+    <div id="setup-fields"></div>
+    <div class="menu-btns">
+      <button class="btn big" id="btn-start">Começar a investigação</button>
+      <button class="btn ghost" id="btn-back-menu">Voltar</button>
+    </div>
+  </div>
+</section>
+
+<!-- JOGO -->
+<section id="game" class="screen">
+  <header class="topbar">
+    <div class="brand">Mistério na Mansão</div>
+    <div id="turn-info" class="turn-info"></div>
+    <div class="top-actions">
+      <button class="btn small ghost" id="btn-full">Tela cheia</button>
+      <button class="btn small ghost" id="btn-mute">Som: ligado</button>
+      <button class="btn small ghost" id="btn-notes-toggle">Caderno</button>
+      <button class="btn small ghost" id="btn-quit">Menu</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <div class="board-wrap">
+      <div id="board">
+        <div id="board-bg"></div>
+        <svg id="paths" viewBox="0 0 100 100" preserveAspectRatio="none"></svg>
+        <div id="rooms"></div>
+        <div id="corridors"></div>
+        <div id="pawns"></div>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div class="panel dice-panel">
+        <div id="dice" class="die"><img id="die-img" src="assets/die1.png" alt="Dado"></div>
+        <div class="dice-text">
+          <div id="dice-result">Role o dado</div>
+          <button class="btn" id="btn-roll">Rolar dado</button>
+        </div>
+      </div>
+
+      <div class="panel actions">
+        <button class="btn" id="btn-suggest" disabled>Fazer hipótese</button>
+        <button class="btn danger" id="btn-accuse" disabled>Acusar</button>
+        <button class="btn ghost" id="btn-end" disabled>Encerrar turno</button>
+      </div>
+
+      <div class="panel">
+        <h3>Mensagens</h3>
+        <div id="log"></div>
+      </div>
+
+      <div class="panel">
+        <h3>Suas cartas <span id="hand-owner"></span></h3>
+        <div id="hand"></div>
+      </div>
+    </aside>
+  </main>
+
+  <div id="notes" class="notes hidden">
+    <div class="notes-head"><h3>Caderno do detetive</h3><button class="btn small ghost" id="btn-notes-close">Fechar</button></div>
+    <div id="notes-body"></div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal hidden"><div class="modal-box" id="modal-box"></div></div>
+<div id="deal-layer"></div>
+
+<script src="game.js"></script>
+</body>
+</html>
